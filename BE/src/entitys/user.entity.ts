@@ -5,8 +5,6 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { OmitType } from '@nestjs/mapped-types';
-
 @Entity('users')
 export class User {
   @PrimaryGeneratedColumn()
@@ -36,7 +34,3 @@ export class User {
   @UpdateDateColumn()
   updatedAt: Date;
 }
-export class UserNoPassword extends OmitType(User, [
-  'password',
-  'role',
-] as const) {}

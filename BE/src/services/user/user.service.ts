@@ -6,9 +6,10 @@ import {
   Logger,
 } from '@nestjs/common';
 import { RegisterUserBodyDTO } from 'src/dtos/auth/create-user.dto';
-import { User, UserNoPassword } from 'src/entitys/user.entity';
+import { User } from 'src/entitys/user.entity';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
+import { UserNoPassword } from 'src/types/user.type';
 
 @Injectable()
 export class UserService {
@@ -24,7 +25,7 @@ export class UserService {
       if (ischeckphone) {
         throw new HttpException(
           'Phone number already exists',
-          HttpStatus.BAD_REQUEST,
+          HttpStatus.CONFLICT,
         );
       }
       const hashedPassword = await bcrypt.hash(plainPassword, 10);
@@ -33,10 +34,10 @@ export class UserService {
         fullName: fullName,
         password: hashedPassword,
       });
-      const newUser = await this.userRepository.save(user);
-      const { password, role, ...userNopassword } = newUser;
-      console.log(password, role);
-      return userNopassword;
+      const newUser: UserNoPassword = await this.userRepository.save(user);
+      delete newUser.password;
+      delete newUser.role;
+      return newUser;
     } catch (error) {
       this.logger.error('Error creating user', error.stack);
       throw error;
