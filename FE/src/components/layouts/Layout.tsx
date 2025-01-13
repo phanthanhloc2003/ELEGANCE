@@ -1,13 +1,15 @@
-
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { Outlet } from "react-router-dom";
 
-export function Layout() {
+interface LayoutProps {
+  children: React.ReactNode; 
+}
+
+export function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow bg-gray-50"> <Outlet/></main>
+      <main className="flex-grow bg-gray-50">{children}</main> 
       <Footer />
     </div>
   );

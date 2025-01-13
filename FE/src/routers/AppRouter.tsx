@@ -1,12 +1,12 @@
 import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import {Home} from '../pages/Home'
 import { Layout } from '../components/layouts/Layout';
 import { Auth } from '../pages/Auth';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />,
+    element: <Layout children={<Outlet />} />,
     children: [
       { path: '/', element: <Home /> },
       { path: '/auth', element: <Auth /> },

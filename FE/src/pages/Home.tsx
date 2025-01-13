@@ -1,63 +1,61 @@
-
-import { Link } from 'react-router-dom';
-import { ArrowRight, Star } from 'lucide-react';
-
+import { Link } from "react-router-dom";
+import { ArrowRight, Star } from "lucide-react";
 const featuredProducts = [
   {
-    id: '1',
-    name: 'Classic Burgundy Dress',
+    id: "1",
+    name: "Classic Burgundy Dress",
     price: 129.99,
     rating: 4.8,
     reviews: 128,
-    image: 'https://images.unsplash.com/photo-1612336307429-8a898d10e223?w=800'
+    image: "https://images.unsplash.com/photo-1612336307429-8a898d10e223?w=800",
   },
   {
-    id: '2',
-    name: 'Elegant Evening Gown',
+    id: "2",
+    name: "Elegant Evening Gown",
     price: 199.99,
     rating: 4.9,
     reviews: 89,
-    image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800'
+    image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800",
   },
   {
-    id: '3',
-    name: 'Summer Floral Dress',
+    id: "3",
+    name: "Summer Floral Dress",
     price: 89.99,
     rating: 4.7,
     reviews: 156,
-    image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800'
+    image: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800",
   },
   {
-    id: '4',
-    name: 'Cocktail Party Dress',
+    id: "4",
+    name: "Cocktail Party Dress",
     price: 149.99,
     rating: 4.8,
     reviews: 112,
-    image: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=800'
-  }
+    image: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=800",
+  },
 ];
 
 const categories = [
   {
-    name: 'Dresses',
-    image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800',
-    count: '150+ Products'
+    name: "Dresses",
+    image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800",
+    count: "150+ Products",
   },
   {
-    name: 'Tops',
-    image: 'https://images.unsplash.com/photo-1551163943-3f6a855d1153?w=800',
-    count: '200+ Products'
+    name: "Tops",
+    image: "https://images.unsplash.com/photo-1551163943-3f6a855d1153?w=800",
+    count: "200+ Products",
   },
   {
-    name: 'Accessories',
-    image: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=800',
-    count: '100+ Products'
-  }
+    name: "Accessories",
+    image: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=800",
+    count: "100+ Products",
+  },
 ];
 
 export function Home() {
   return (
-     <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       <div className="relative h-[70vh] sm:h-[80vh] lg:h-[90vh]">
         <div className="absolute inset-0">
           <img
@@ -73,7 +71,8 @@ export function Home() {
               Elegance in Every Stitch
             </h1>
             <p className="text-lg sm:text-xl mb-8 text-gray-100">
-              Discover our new collection of timeless pieces crafted for the modern woman
+              Discover our new collection of timeless pieces crafted for the
+              modern woman
             </p>
             <Link
               to="/products"
@@ -86,10 +85,15 @@ export function Home() {
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 py-16">
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">Shop by Category</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">
+          Shop by Category
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category) => (
-            <div key={category.name} className="group relative overflow-hidden rounded-lg">
+            <div
+              key={category.name}
+              className="group relative overflow-hidden rounded-lg"
+            >
               <div className="aspect-w-3 aspect-h-4">
                 <img
                   src={category.image}
@@ -99,7 +103,9 @@ export function Home() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-xl font-semibold text-white">{category.name}</h3>
+                <h3 className="text-xl font-semibold text-white">
+                  {category.name}
+                </h3>
                 <p className="text-sm text-gray-200 mt-1">{category.count}</p>
               </div>
             </div>
@@ -110,15 +116,24 @@ export function Home() {
       {/* Featured Products */}
       <div className="max-w-7xl mx-auto px-4 py-16 bg-white">
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Featured Collection</h2>
-          <Link to="/products" className="text-burgundy-700 hover:text-burgundy-800 font-medium flex items-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+            Featured Collection
+          </h2>
+          <Link
+            to="/products"
+            className="text-burgundy-700 hover:text-burgundy-800 font-medium flex items-center"
+          >
             View All
             <ArrowRight className="ml-1 h-4 w-4" />
           </Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8">
           {featuredProducts.map((product) => (
-            <Link key={product.id} to={`/product/${product.id}`} className="group">
+            <Link
+              key={product.id}
+              to={`/product/${product.id}`}
+              className="group"
+            >
               <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200">
                 <img
                   src={product.image}
@@ -136,7 +151,9 @@ export function Home() {
                     {product.rating} ({product.reviews})
                   </span>
                 </div>
-                <p className="mt-1 text-lg font-medium text-burgundy-700">${product.price}</p>
+                <p className="mt-1 text-lg font-medium text-burgundy-700">
+                  ${product.price}
+                </p>
               </div>
             </Link>
           ))}
@@ -151,7 +168,8 @@ export function Home() {
               Subscribe to Our Newsletter
             </h2>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Stay updated with our latest collections, exclusive offers, and fashion tips.
+              Stay updated with our latest collections, exclusive offers, and
+              fashion tips.
             </p>
             <form className="max-w-md mx-auto flex gap-4">
               <input
@@ -171,4 +189,4 @@ export function Home() {
       </div>
     </div>
   );
-};
+}
