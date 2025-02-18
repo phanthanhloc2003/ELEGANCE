@@ -6,9 +6,12 @@ import { Auth } from "../pages/Auth";
 import ProductDetail from "../pages/ProductDetail";
 import Order from "../pages/Order";
 import CreateProduct from "../pages/admin/CreateProduct";
-import { AdminLayout } from "../components/admin/AdminLayout";
+import { AdminLayout } from "../components/admin/layout/AdminLayout";
 import Dashboard from "../pages/admin/Dashboard";
-
+import ProductList from "../pages/admin/ProductList";
+import UserList from "../pages/admin/UserList";
+import OrderList from "../pages/admin/OrderList";
+import OrderDetail from "../pages/admin/OrderDetail";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,6 +29,10 @@ const router = createBrowserRouter([
     children: [
       { path: "dashboard", element: <Dashboard /> },
       { path: "products/create", element: <CreateProduct /> },
+      { path: "products", element: <ProductList /> },
+      { path: "users", element: <UserList /> },
+      { path: "orders", element: <OrderList /> },
+      { path: "orders/:id", element: <OrderDetail /> },
     ],
   },
 ]);
