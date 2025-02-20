@@ -15,6 +15,7 @@ import OrderDetail from "../pages/admin/OrderDetail";
 import Checkout from "../pages/Checkout";
 import OrderConfirmation from "../pages/OrderConfirmation";
 import AddAddress from "../pages/AddAddress";
+import UserProfile from "../pages/UserProfile";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
       { path: "checkout", element: <Checkout /> },
       { path: "order-confirmation", element: <OrderConfirmation /> },
       { path: "addresses", element: <AddAddress /> },
+      { path: "profile", element: <UserProfile /> },
     ],
   },
   {
