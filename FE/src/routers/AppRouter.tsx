@@ -18,13 +18,15 @@ import AddAddress from "../pages/AddAddress";
 import UserProfile from "../pages/UserProfile";
 import UserAddresses from "../pages/UserAddresses";
 import UserOrders from "../pages/UserOrders";
+import Search from "../pages/Search";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
       { path: "", element: <Home /> },
-      { path: "auth", element: <Auth /> },
+      { path: "auth", element: <Auth /> }, 
+      { path: "search", element: <Search /> }, 
       { path: "product/:id", element: <ProductDetail /> },
       { path: "order", element: <Order /> },
       { path: "checkout", element: <Checkout /> },
